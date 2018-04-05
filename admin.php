@@ -11,7 +11,19 @@ if(isset(['user'])){
 $uname=$_POST['user'];
 $password=$_POST['pass'];
 
-$sql="select * from Admin where username='".$uname."'AND password"
+$sql="select * from Admin where user='".$uname."'AND pass='".$password."'
+limit 1";
+
+$result=mysql_query($sql);
+
+if(mysql_num_rows($result)==1){
+    echo " Du har lyckats logga in";
+    exit();
+}
+else{
+    echo "Du har skrivit in fel lösenord";
+    exit();
+}
 }
 
 
