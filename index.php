@@ -1,9 +1,10 @@
 <?php   
-session_start();  
-    $servername = "localhost";
-    $username = "joelmaneskold";
-    $password = "HZ5buA$)7e8w";
-    $dbname = "joelmaneskold";
+session_start();
+    $dbsettings = parse_ini_file('./database.ini');
+    $servername = $dbsettings['address'];
+    $username = $dbsettings['username'];
+    $password = $dbsettings['password'];
+    $dbname = $dbsettings['dbname'];
 // Vi loggar in i databasen
 $connect = new mysqli($servername, $username, $password, $dbname);
 // Testa om det funkar
