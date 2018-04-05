@@ -1,9 +1,9 @@
 <?php   
 session_start();  
-$servername = "localhost";
-$username = "joelmaneskold";
-$password = "HZ5buA$)7e8w";
-$dbname = "joelmaneskold";
+    $servername = "localhost";
+    $username = "joelmaneskold";
+    $password = "HZ5buA$)7e8w";
+    $dbname = "joelmaneskold";
 // Vi loggar in i databasen
 $connect = new mysqli($servername, $username, $password, $dbname);
 // Testa om det funkar
@@ -31,9 +31,9 @@ if(isset($_POST["add_to_cart"]))
      {  
           $item_array = array(  
                'item_id'               =>     $_GET["id"],  
-               'item_name'               =>     $_POST["hidden_name"],  
-               'item_price'          =>     $_POST["hidden_price"],  
-               'item_quantity'          =>     $_POST["quantity"]  
+               'item_name'             =>     $_POST["hidden_name"],  
+               'item_price'            =>     $_POST["hidden_price"],  
+               'item_quantity'         =>     $_POST["quantity"]  
           );  
           $_SESSION["shopping_cart"][0] = $item_array;  
      }  
@@ -52,6 +52,7 @@ if(isset($_GET["action"]))
      }  
 }  
 ?>
+
 <!DOCTYPE html>
 <html>
 
