@@ -1,13 +1,19 @@
 <?php
-$host="localhost";
-$user="root";
-$password="";
-$database="demo";
 
-mysql_connect($host,$user,$password);
-$mysql_select_database($database);
+session_start();
+   $dbsettings = parse_ini_file('./database.ini');
+   $servername = $dbsettings['address'];
+   $username = $dbsettings['username'];
+   $password = $dbsettings['password'];
+   $dbname = $dbsettings['dbname'];
+// Vi loggar in i databasen
+$connect = new mysqli($servername, $username, $password, $dbname);
+// Testa om det funkar
+if ($connect->connect_error) {
+   die("FEL: " . $connect->connect_error);
+}
 
-if(isset(['user'])){
+if(isset($_POST['user'])){
 $uname=$_POST['user'];
 $password=$_POST['pass'];
 
